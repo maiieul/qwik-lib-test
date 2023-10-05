@@ -13,9 +13,20 @@ export default defineConfig(() => {
       target: "es2020",
       lib: {
         entry: "./src/index.ts",
+        // Could also be a dictionary or array of multiple entry points.
+        name: "qwik-ui-lib-test",
+        fileName: (format, entryName) =>
+          `${entryName}.qwik.${format === "es" ? "mjs" : "cjs"}`,
+        // fileName: 'index',
+        // Change this to the formats you want to support.
+        // Don't forgot to update your package.json as well.
         formats: ["es", "cjs"],
-        fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
       },
+      // lib: {
+      //   entry: "./src/index.ts",
+      //   formats: ["es", "cjs"],
+      //   fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
+      // },
       rollupOptions: {
         // externalize deps that shouldn't be bundled into the library
         external: [
