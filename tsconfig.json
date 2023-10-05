@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "incremental": true,
     "isolatedModules": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "cypress", "node", "jest", "@testing-library/jest-dom", "@testing-library/cypress"]
   },
-  "include": ["src"]
+  "include": ["src", "cypress", "node_modules/cypress", "./cypress/**/*.ts", "./cypress.config.ts"],
+  "exclude": ["node_modules", "./jest-setup.ts"]
+
 }
