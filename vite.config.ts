@@ -26,6 +26,10 @@ export default defineConfig(() => {
           "country-list-json",
           "libphonenumber-js",
         ],
+        output: {
+          preserveModules: true,
+          preserveModulesRoot: "src",
+        },
       },
     },
     plugins: [qwikVite(), tsconfigPaths()],
